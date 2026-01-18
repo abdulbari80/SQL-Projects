@@ -1,33 +1,5 @@
 # Data Warehouse Dataflow and Architecture
-```mermaid
-flowchart TB
-    %% ===== Bronze =====
-    subgraph BRZ["Bronze Layer"]
-        B1["Raw, append-only ingestion"]
-        B2["Minimal transformation"]
-        B3["Source-aligned schemas"]
-        B4["No business logic"]
-    end
-
-    %% ===== Silver =====
-    subgraph SLV["Silver Layer"]
-        S1["Cleansed & standardized"]
-        S2["Deduplication & CDC handling"]
-        S3["Type casting & normalization"]
-        S4["Basic business rules"]
-        S5["Still source-oriented"]
-    end
-
-    %% ===== Gold =====
-    subgraph GLD["Gold Layer"]
-        G1["Analytics-ready star schema"]
-        G2["Fact tables"]
-        G3["Conformed dimensions"]
-        G4["Business definitions applied"]
-    end
-
-    BRZ --> SLV --> GLD
-```
+This is a three layer data warehouse built following the medalion architecture and with data extracted from ERP and CRM . Again, a star schema is developed centering the dimension around a fact table. Click to see [![Layout Diagram](Data-Warehouse/Architecture/DWH_layout.png)](Data-Warehouse/Architecture/DWH_layout.png)
 
 ```mermaid
 flowchart LR
