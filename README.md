@@ -19,7 +19,7 @@ flowchart LR
     end
 
     %% ===== Silver Layer =====
-    subgraph SLV["Silver Layer (Cleansed / Standardized)"]
+    subgraph SLV["Silver Layer (Cleansed)"]
         S_CRM_SALES["crm_sales_details"]
         S_CRM_CUST["crm_cust_info"]
         S_CRM_PRD["crm_prd_info"]
@@ -30,7 +30,7 @@ flowchart LR
     end
 
     %% ===== Gold Layer =====
-    subgraph GLD["Gold Layer (Business / Analytics)"]
+    subgraph GLD["Gold Layer (Analytics)"]
         FACT_SALES["fact_sales"]
         DIM_CUSTOMERS["dim_customers"]
         DIM_PRODUCTS["dim_products"]
@@ -63,3 +63,32 @@ flowchart LR
     S_ERP_CUST --> DIM_CUSTOMERS
     S_ERP_LOC --> DIM_CUSTOMERS
 ```
+Layer Intent 
+
+- Bronze
+
+    - Raw, append-only ingestion
+
+    - Minimal transformation
+
+    - Source-aligned schemas
+
+- Silver
+
+    - Cleansed and standardized
+
+    - Deduplication, type casting, basic business rules
+
+    - Still largely source-oriented
+
+- Gold
+
+    - Analytics-ready star schema
+
+    - `fact_sales` built from CRM sales
+
+    - Conformed dimensions:
+
+        - `dim_customers` (CRM + ERP)
+
+        - `dim_products` (CRM + ERP pricing/catalog)
