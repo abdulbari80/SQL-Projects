@@ -1,4 +1,4 @@
-# Data Warehouse Architecture
+# Data Warehouse Dataflow and Architecture
 ```mermaid
 flowchart TB
     %% ===== Bronze =====
@@ -93,32 +93,28 @@ flowchart LR
     S_ERP_CUST --> DIM_CUSTOMERS
     S_ERP_LOC --> DIM_CUSTOMERS
 ```
-Layer Intent 
+##Modeling Principles
 
-- Bronze
+- Bronze Layer
 
-    - Raw, append-only ingestion
+    - Immutable, replayable raw data
 
-    - Minimal transformation
+    - Schema changes tolerated
 
-    - Source-aligned schemas
+    - No joins or aggregations
 
-- Silver
+- Silver Layer
 
-    - Cleansed and standardized
+    - One row = one business entity/event
 
-    - Deduplication, type casting, basic business rules
+    - Cleaned, deduplicated, standardized
 
-    - Still largely source-oriented
+    - Still traceable to source
 
-- Gold
+- Gold Layer
 
-    - Analytics-ready star schema
+    - Star schema optimized for analytics
 
-    - `fact_sales` built from CRM sales
+    - Facts reference conformed dimensions
 
-    - Conformed dimensions:
-
-        - `dim_customers` (CRM + ERP)
-
-        - `dim_products` (CRM + ERP pricing/catalog)
+    - Business logic is applied once and reused everywhere
