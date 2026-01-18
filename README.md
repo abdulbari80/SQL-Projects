@@ -1,5 +1,5 @@
 # Data Warehouse Architecture
-
+```mermaid
 flowchart LR
     %% ===== Sources =====
     subgraph SRC["Source Systems"]
@@ -62,3 +62,4 @@ flowchart LR
     S_CRM_CUST --> DIM_CUSTOMERS
     S_ERP_CUST --> DIM_CUSTOMERS
     S_ERP_LOC --> DIM_CUSTOMERS
+```
