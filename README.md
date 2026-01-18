@@ -93,7 +93,7 @@ flowchart LR
     S_ERP_CUST --> DIM_CUSTOMERS
     S_ERP_LOC --> DIM_CUSTOMERS
 ```
-##Modeling Principles
+### Modeling Principles
 
 - Bronze Layer
 
