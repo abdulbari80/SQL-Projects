@@ -1,5 +1,5 @@
 # Data Warehouse Dataflow and Architecture
-This is a three layer data warehouse built following the medalion architecture and with data extracted from ERP and CRM . Again, <a href="Data-Warehouse/Architecture/DWH_star_schema.png" target="_blank">star schema</a> is developed centering the dimension around a fact table.
+This is a three layer data warehouse built following the medalion architecture and with data extracted from ERP and CRM . Again, a <a href="Data-Warehouse/Architecture/DWH_star_schema.png" target="_blank">star schema</a> is developed with dimension tables centering at a fact table.
 
 [![Layout Diagram](Data-Warehouse/Architecture/DWH_layout.png)](Data-Warehouse/Architecture/DWH_layout.png)
 
